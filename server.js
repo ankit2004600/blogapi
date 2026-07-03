@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
-const connectDB = require('./config/database');
-const errorHandler = require('./middleware/errorHandler');
+const connectDB = require('./database');
+const errorHandler = require('./errorHandler');
 
 const app = express();
 
@@ -12,7 +12,7 @@ connectDB();
 app.use(express.json());
 
 // Mount routes
-app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/users', require('./userRoutes'));
 
 // 404 handler
 app.use((req, res) => {
